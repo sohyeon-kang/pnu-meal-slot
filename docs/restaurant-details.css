@@ -1,6 +1,8 @@
 .hours-line{display:block}.hours-line+.hours-line{margin-top:6px}
-.header-actions{flex-shrink:0}.header-info.usage-guide-button{display:inline-flex;align-items:center;justify-content:center;width:auto;height:auto;min-height:40px;padding:9px 12px;font-size:12px;line-height:1.25;white-space:nowrap;background:var(--lavender)}
+.header-actions{flex:0 0 auto}.brand{min-width:0;flex-shrink:1}.brand>.brand-wordmark{font-size:20px;line-height:1.4;letter-spacing:0;white-space:nowrap}.brand img{flex-shrink:0}
+.header-info.usage-guide-button{appearance:none;-webkit-appearance:none;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;width:auto;min-width:88px;height:44px;min-height:44px;padding:8px 12px;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-weight:600;font-size:14px;line-height:1.5;letter-spacing:0;white-space:nowrap;word-break:keep-all;background:var(--lavender);overflow:visible;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 .usage-guide-button:focus-visible{outline:3px dashed var(--purple);outline-offset:4px}
 .usage-steps{padding-left:24px;margin:0;display:grid;gap:14px}.usage-steps li::marker{font-weight:700;color:var(--purple)}.usage-steps strong{display:block;color:var(--ink);font-size:13px}.usage-steps span{display:block}.info-dialog .usage-storage{margin:22px 0 0;padding-top:14px;border-top:1px dashed #c5b3c4;font-size:10px}
-@media(max-width:640px){.header-info.usage-guide-button{font-size:11px;padding:9px 11px}.info-dialog .usage-steps li{font-size:11px;line-height:1.8}}
+@media(max-width:640px){.header-inner{gap:10px}.brand>.brand-wordmark{font-size:14px}.header-actions{margin-left:auto}.info-dialog .usage-steps li{font-size:11px;line-height:1.8}}
+@media(max-width:360px){.brand{gap:4px}.brand>.brand-wordmark{font-size:13px}.brand img{width:32px;height:32px}.header-info.usage-guide-button{min-width:84px;padding:8px 10px}}
 @media(max-width:640px){.browse-chips{margin:10px 0 7px}.card-tags{gap:5px}}
