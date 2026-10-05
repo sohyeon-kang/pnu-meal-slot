@@ -1,7 +1,7 @@
-import { restaurants, DATA_DATE } from './data.js';
-import { EMPTY_FILTERS, filterRestaurants, drawRestaurant, normalizeFilters, secureRandom, reviewVolume, hasStudentUseEvidence, isDrawEligible } from './engine.js';
+import { restaurants } from './data.js';
+import { EMPTY_FILTERS, filterRestaurants, drawRestaurant, normalizeFilters, secureRandom, reviewVolume, isDrawEligible } from './engine.js';
 import { pixelPaths } from './pixel-icons.js';
-import { evidenceBadge, evidenceMarkup, sourceMarkup } from './evidence.js';
+import { evidenceBadge, evidenceMarkup, sourceMarkup, hoursMarkup } from './evidence.js';
 
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const escape=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -41,7 +41,7 @@ function renderFilterChips(){
     $(selector).innerHTML=Object.entries(options).map(([value,i])=>`<button class="chip ${(f[group]||[]).includes(value)?'selected':''}" data-filter="${group}" data-value="${value}" aria-pressed="${(f[group]||[]).includes(value)}">${icon(i)}${value}</button>`).join('');
   }
   $('#min-reviews').value=f.minReviews||0;
-  $('#avoid-recent').checked=f.avoidRecent;$('#favorites-only').checked=f.favoritesOnly;$('#student-evidence-only').checked=f.studentEvidenceOnly;
+  $('#avoid-recent').checked=f.avoidRecent;$('#favorites-only').checked=f.favoritesOnly;
 }
 function updateCount(){
   const count=candidates().length,f=filters();
@@ -51,7 +51,7 @@ function updateCount(){
   $('#favorite-count').textContent=catalog().filter(r=>favorites.includes(r.id)).length;
   $('#launch-count').textContent=`${count}곳`;$('#apply-filters').textContent=`${count}곳에서 ${label()} 뽑기`;
   const selected=[...(f.cuisines||f.types||[]),...f.tastes,...(f.meals||[])];
-  if(f.minReviews)selected.push(`리뷰 ${f.minReviews}건+`);if(f.studentEvidenceOnly)selected.push('학생 이용 자료');if(f.favoritesOnly)selected.push('찜한 곳만');
+  if(f.minReviews)selected.push(`리뷰 ${f.minReviews}건+`);if(f.favoritesOnly)selected.push('찜한 곳만');
   $('#active-filter-summary').textContent=selected.length?selected.join(' · '):'아무거나 좋아!';
   $$('[data-total-count]').forEach(e=>e.textContent=catalog().length);$('#hero-counter').textContent=`${label()} ${catalog().filter(isDrawEligible).length}곳`;
 }
@@ -73,14 +73,14 @@ function switchTab(tab,scroll=true){
 function renderCollection(){
   const onlySaved=currentTab==='favorites';
   $('#collection-title').innerHTML=onlySaved?'찜한 맛집 모음<span>.</span>':'부산대 맛집 도감<span>.</span>';
-  $('#collection-subtitle').textContent=`${catalog().length}곳 · ${label()} 뽑기 ${catalog().filter(isDrawEligible).length}곳. 학생 이용 근거는 상세에서 확인해요.`;
+  $('#collection-subtitle').textContent=`${catalog().length}곳 · ${label()} 뽑기 ${catalog().filter(isDrawEligible).length}곳. 마음에 드는 식당을 찾아보세요.`;
   const options=Object.keys(cuisineIcons);
   $('#browse-cuisines').innerHTML=['전체',...options].map(c=>`<button class="chip ${browseCuisine===c?'selected':''}" data-browse-cuisine="${c}" aria-pressed="${browseCuisine===c}">${c}</button>`).join('');
   const query=$('#search').value.replace(/\s/g,'').toLocaleLowerCase('ko');
-  let list=catalog().filter(r=>(!onlySaved||favorites.includes(r.id))&&(browseCuisine==='전체'||types(r).includes(browseCuisine))&&(!$('#browse-student-only').checked||hasStudentUseEvidence(r))&&(!query||`${r.name} ${(r.aliases||[]).join(' ')} ${r.menu} ${types(r).join(' ')} ${r.tastes.join(' ')}`.replace(/\s/g,'').toLocaleLowerCase('ko').includes(query)));
+  let list=catalog().filter(r=>(!onlySaved||favorites.includes(r.id))&&(browseCuisine==='전체'||types(r).includes(browseCuisine))&&(!query||`${r.name} ${(r.aliases||[]).join(' ')} ${r.menu} ${types(r).join(' ')} ${r.tastes.join(' ')}`.replace(/\s/g,'').toLocaleLowerCase('ko').includes(query)));
   const sort=$('#sort').value;if(sort==='reviews')list.sort((a,b)=>(reviewVolume(b)??-1)-(reviewVolume(a)??-1));if(sort==='name')list.sort((a,b)=>a.name.localeCompare(b.name,'ko'));
   $('#collection-count').textContent=`${list.length}곳 ${onlySaved?'찜해두었어요':'모아두었어요'}`;$('#collection-cards').innerHTML=list.map(card).join('');$('#collection-empty').classList.toggle('hidden',list.length!==0);
-  const hasSaved=catalog().some(r=>favorites.includes(r.id));$('#collection-empty p').textContent=onlySaved&&!hasSaved?'카드의 하트를 눌러 나만의 목록을 만들어봐요.':'검색어나 종류, 학생 이용 자료 조건을 바꿔보세요.';$('#empty-action').textContent=onlySaved&&!hasSaved?'도감 둘러보기':'검색 조건 지우기';
+  const hasSaved=catalog().some(r=>favorites.includes(r.id));$('#collection-empty p').textContent=onlySaved&&!hasSaved?'카드의 하트를 눌러 나만의 목록을 만들어봐요.':'검색어나 음식 종류를 바꿔보세요.';$('#empty-action').textContent=onlySaved&&!hasSaved?'도감 둘러보기':'검색 조건 지우기';
 }
 function defaultReels(){return [{image:'rice',label:'든든한 밥'},{image:'noodles',label:'후루룩 면'},{image:'burger',label:'행복한 한 입'}];}
 function setReels(items=defaultReels()){$('#reels').innerHTML=items.map(x=>`<div class="reel"><div class="reel-content"><img src="./assets/${x.image}.svg" alt=""><span class="reel-label">${escape(x.label)}</span></div></div>`).join('');}
@@ -101,7 +101,7 @@ async function spin(){
 function showDialog(id){previousFocus=document.activeElement;$(id).showModal();}
 function showDetail(id,fromDraw=false,recycled=false){
   const r=byId.get(id);if(!r)return;const isSaved=favorites.includes(id),tags=[r.cuisine,...r.tastes,...r.meals],hours=r.lunchHours;
-  $('#result-content').innerHTML=`<button class="dialog-close" data-close="result-dialog" aria-label="닫기">×</button><div class="result-top"><p class="result-eyebrow">${fromDraw?'MISSION COMPLETE!':'FOOD PLANET DISCOVERED'}</p><img src="./assets/${art(r)}.svg" alt="음식을 든 귀여운 도트 원숭이"></div><div class="result-content"><p class="result-label">${fromDraw?'맛집 탐사 성공!':escape(r.area)}</p><h2 id="result-title">${escape(r.name)}</h2><p class="result-menu">${escape(r.menu)}</p><div class="result-rating">${ratingMarkup(r)}</div><div class="result-tags">${tags.map(t=>`<span class="tag">${escape(t)}</span>`).join('')}</div>${r.note?`<p class="result-note">${escape(r.note)}</p>`:''}<p class="result-address">${escape(r.address)}</p><p class="result-hours">${hours?`영업 참고 · ${escape(hours)}`:'영업시간은 네이버 지도에서 확인해주세요.'}</p>${r.menuEvidenceType==='review'?'<p class="result-hours">메뉴는 네이버 리뷰를 참고했어요.</p>':''}${recycled?'<p class="recycled-note">맞는 곳을 모두 최근에 뽑아서 전체 후보에서 다시 골랐어요.</p>':''}${evidenceMarkup(r)}${sourceMarkup(r,mapUrl(r),DATA_DATE)}<div class="result-actions"><a class="primary-button" href="${escape(mapUrl(r))}" target="_blank" rel="noopener noreferrer">${icon('pin')}네이버 지도에서 찾기</a><button class="secondary-button result-save ${isSaved?'saved':''}" data-favorite="${id}" aria-pressed="${isSaved}" aria-label="${escape(r.name)} ${isSaved?'찜 취소':'찜하기'}">${icon('heart')}${isSaved?'찜했어요':'찜하기'}</button></div><div class="result-bottom">${fromDraw?`<button class="text-button" id="spin-again">${icon('shuffle')}한 번 더 뽑기</button>`:''}<button class="text-button" data-close="result-dialog">${fromDraw?'좋아, 오늘은 여기!':'닫기'}</button></div></div>`;
+  $('#result-content').innerHTML=`<button class="dialog-close" data-close="result-dialog" aria-label="닫기">×</button><div class="result-top"><p class="result-eyebrow">${fromDraw?'MISSION COMPLETE!':'FOOD PLANET DISCOVERED'}</p><img src="./assets/${art(r)}.svg" alt="음식을 든 귀여운 도트 원숭이"></div><div class="result-content"><p class="result-label">${fromDraw?'맛집 탐사 성공!':escape(r.area)}</p><h2 id="result-title">${escape(r.name)}</h2><p class="result-menu">${escape(r.menu)}</p><div class="result-rating">${ratingMarkup(r)}</div><div class="result-tags">${tags.map(t=>`<span class="tag">${escape(t)}</span>`).join('')}</div>${r.note?`<p class="result-note">${escape(r.note)}</p>`:''}<p class="result-address">${escape(r.address)}</p><p class="result-hours">${hoursMarkup(hours)}</p>${recycled?'<p class="recycled-note">맞는 곳을 모두 최근에 뽑아서 전체 후보에서 다시 골랐어요.</p>':''}${evidenceMarkup(r)}${sourceMarkup(mapUrl(r))}<div class="result-actions"><a class="primary-button" href="${escape(mapUrl(r))}" target="_blank" rel="noopener noreferrer">${icon('pin')}네이버 지도에서 찾기</a><button class="secondary-button result-save ${isSaved?'saved':''}" data-favorite="${id}" aria-pressed="${isSaved}" aria-label="${escape(r.name)} ${isSaved?'찜 취소':'찜하기'}">${icon('heart')}${isSaved?'찜했어요':'찜하기'}</button></div><div class="result-bottom">${fromDraw?`<button class="text-button" id="spin-again">${icon('shuffle')}한 번 더 뽑기</button>`:''}<button class="text-button" data-close="result-dialog">${fromDraw?'좋아, 오늘은 여기!':'닫기'}</button></div></div>`;
   $('#result-dialog').setAttribute('aria-labelledby','result-title');if(!$('#result-dialog').open)showDialog('#result-dialog');
 }
 function celebrate(){const colors=['#ff96c5','#ffe68a','#c4ec89','#c5b1ee'];$('#confetti').innerHTML=Array.from({length:30},(_,i)=>`<i style="background:${colors[i%4]};--x:${(secureRandom()-.5)*750}px;--y:${100+secureRandom()*550}px;--r:${secureRandom()*900}deg;animation-delay:${secureRandom()*.2}s"></i>`).join('');setTimeout(()=>$('#confetti').replaceChildren(),2200);}
@@ -110,7 +110,7 @@ function showHistory(){
 }
 function showAbout(){
   const verified=restaurants.filter(r=>r.naverVerified).length;
-  $('#info-content').innerHTML=`<p class="eyebrow">FOOD PLANET GUIDE</p><h2 id="info-title">우리의 탐사 기준</h2><p>식당 도감 ${restaurants.length}곳, 점심 뽑기 ${restaurants.filter(isDrawEligible).length}곳입니다. 취향에 맞는 식당을 뽑고 마음에 드는 곳을 찜해두세요.</p><h3>부산대 정문 생활권</h3><p>정문 도보 7~10분 생활권을 목표로 모았습니다. 실제 개별 보행 시간은 미측정이며 역 방향 식당은 상세 화면에서 안내합니다. 저녁 영업과 점심 미확인 식당은 점심 뽑기에서 제외하고, 밥집오빠는 수록하지 않습니다.</p><h3>기존 식당도 학생 이용을 조사했어요</h3><p>식당별 학생 방문 후기·부산대 커뮤니티·학교 자료를 검토하고 확인일과 출처를 남겼습니다. ‘학생 이용 자료’는 학생 이용을 명시한 기록, ‘간접 자료’는 추천·제휴 등 보조 근거, ‘학생 이용 미확인’은 적절한 자료를 찾지 못한 경우예요. 미확인은 학생이 방문하지 않는다는 뜻이 아닙니다.</p><p>학생 이용 자료 필터는 명시적인 이용 근거가 있는 곳만 보여줍니다. 과거 자료도 포함하며 현재 방문 빈도나 인기 순위를 증명하지 않아요. 카드 상세에서 근거 날짜와 한계를 확인해주세요.</p><h3>네이버 별점과 리뷰</h3><p>기존 ${verified}곳은 네이버 장소 정보를 직접 확인했습니다. 미확인 식당의 별점·리뷰 수는 비워 두며 다른 플랫폼 값으로 대체하지 않습니다. 공개 메뉴·영업 자료와 학생 이용 출처는 상세 화면에 구분해서 표시합니다. 네이버 지도 링크를 열 때 API 요금은 발생하지 않아요.</p><p>리뷰 수는 평점·학생 인기 순위가 아니며 별점은 남아 있는 과거 표시값입니다. 1.1만 같은 건수는 표시를 유지하고 필터에 근삿값을 사용합니다. 리뷰 수 조건을 고르면 미확인 식당은 제외돼요.</p><h3>뽑기와 저장</h3><p>같은 항목 안에서는 하나라도, 서로 다른 항목에서는 모두 맞는 곳을 고릅니다. 후보별 뽑힐 확률은 같습니다. 최근 5곳 제외가 가능하고 모두 뽑았으면 전체 후보로 돌아갑니다. 찜·취향·최근 기록은 이 브라우저에 저장됩니다.</p>`;
+  $('#info-content').innerHTML=`<p class="eyebrow">FOOD PLANET GUIDE</p><h2 id="info-title">우리의 탐사 기준</h2><p>식당 도감 ${restaurants.length}곳, 점심 뽑기 ${restaurants.filter(isDrawEligible).length}곳입니다. 취향에 맞는 식당을 뽑고 마음에 드는 곳을 찜해두세요.</p><h3>부산대 정문 생활권</h3><p>정문 도보 7~10분 생활권을 목표로 모았습니다. 실제 개별 보행 시간은 미측정이며 역 방향 식당은 상세 화면에서 안내합니다. 저녁 영업과 점심 미확인 식당은 점심 뽑기에서 제외하고, 밥집오빠는 수록하지 않습니다.</p><h3>네이버 별점과 리뷰</h3><p>기존 ${verified}곳은 네이버 장소 정보를 직접 확인했습니다. 미확인 식당의 별점·리뷰 수는 비워 두며 다른 플랫폼 값으로 대체하지 않습니다. 네이버 지도 링크를 열 때 API 요금은 발생하지 않아요.</p><p>리뷰 수는 평점·학생 인기 순위가 아니며 별점은 남아 있는 과거 표시값입니다. 1.1만 같은 건수는 표시를 유지하고 필터에 근삿값을 사용합니다. 리뷰 수 조건을 고르면 미확인 식당은 제외돼요.</p><h3>뽑기와 저장</h3><p>같은 항목 안에서는 하나라도, 서로 다른 항목에서는 모두 맞는 곳을 고릅니다. 후보별 뽑힐 확률은 같습니다. 최근 5곳 제외가 가능하고 모두 뽑았으면 전체 후보로 돌아갑니다. 찜·취향·최근 기록은 이 브라우저에 저장됩니다.</p>`;
   $('#info-dialog').setAttribute('aria-labelledby','info-title');showDialog('#info-dialog');
 }
 document.addEventListener('click',e=>{
@@ -132,12 +132,12 @@ document.addEventListener('click',e=>{
     case 'history-button':showHistory();break;
     case 'about-button':showAbout();break;
     case 'clear-history':history=[];persist();showHistory();toast(`${label()} 기록을 지웠어요.`);break;
-    case 'empty-action':$('#search').value='';browseCuisine='전체';$('#browse-student-only').checked=false;if(currentTab==='favorites'&&!catalog().some(r=>favorites.includes(r.id)))switchTab('browse');else renderCollection();break;
+    case 'empty-action':$('#search').value='';browseCuisine='전체';if(currentTab==='favorites'&&!catalog().some(r=>favorites.includes(r.id)))switchTab('browse');else renderCollection();break;
   }
 });
 $('#min-reviews').addEventListener('change',e=>{mealFilters.minReviews=Number(e.target.value);persist();updateCount();});
-for(const [id,key] of [['avoid-recent','avoidRecent'],['favorites-only','favoritesOnly'],['student-evidence-only','studentEvidenceOnly']])$('#'+id).addEventListener('change',e=>{filters()[key]=e.target.checked;persist();updateCount();});
-$('#search').addEventListener('input',renderCollection);$('#sort').addEventListener('change',renderCollection);$('#browse-student-only').addEventListener('change',renderCollection);
+for(const [id,key] of [['avoid-recent','avoidRecent'],['favorites-only','favoritesOnly']])$('#'+id).addEventListener('change',e=>{filters()[key]=e.target.checked;persist();updateCount();});
+$('#search').addEventListener('input',renderCollection);$('#sort').addEventListener('change',renderCollection);
 window.addEventListener('hashchange',()=>switchTab(location.hash.slice(1),false));
 $$('dialog').forEach(d=>{d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close();}});d.addEventListener('close',()=>{if(previousFocus?.isConnected)previousFocus.focus({preventScroll:true});});});
 renderIcons();syncFilterLayout();mobileLayout.addEventListener('change',syncFilterLayout);$$('.bulbs').forEach(e=>e.innerHTML='<i></i>'.repeat(12));renderFilterChips();setReels();updateCount();switchTab(location.hash.slice(1),false);

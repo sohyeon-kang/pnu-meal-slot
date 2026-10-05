@@ -1,5 +1,4 @@
-export const EMPTY_FILTERS = { cuisines: [], tastes: [], meals: [], minReviews: 0, favoritesOnly: false, avoidRecent: true, studentEvidenceOnly: false };
-export const hasStudentUseEvidence = r => r.studentEvidenceLevel === 'direct' && !!r.evidence?.length;
+export const EMPTY_FILTERS = { cuisines: [], tastes: [], meals: [], minReviews: 0, favoritesOnly: false, avoidRecent: true };
 export const isDrawEligible = r => r.lunchEligible !== false;
 export function reviewVolume(r) {
   if (Number.isInteger(r.reviewCount)) return r.reviewCount;
@@ -9,7 +8,6 @@ export function reviewVolume(r) {
 export function filterRestaurants(restaurants, filters, favorites = []) {
   return restaurants.filter(r =>
     isDrawEligible(r) &&
-    (!filters.studentEvidenceOnly || hasStudentUseEvidence(r)) &&
     (!filters.cuisines.length || filters.cuisines.includes(r.cuisine)) &&
     (!filters.tastes.length || filters.tastes.some(t => r.tastes.includes(t))) &&
     (!filters.meals.length || filters.meals.some(m => r.meals.includes(m))) &&
@@ -37,6 +35,5 @@ export function normalizeFilters(value = {}) {
     minReviews: [0,100,500,1000].includes(value.minReviews) ? value.minReviews : 0,
     favoritesOnly: value.favoritesOnly === true,
     avoidRecent: value.avoidRecent !== false,
-    studentEvidenceOnly: value.studentEvidenceOnly === true,
   };
 }

@@ -11,7 +11,7 @@
   <link rel="preload" href="./assets/fonts/Galmuri11-Bold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="./pixel.css">
   <link rel="stylesheet" href="./mobile.css">
-  <link rel="stylesheet" href="./student-evidence.css">
+  <link rel="stylesheet" href="./restaurant-details.css">
   <script type="module" src="./app.js"></script>
 </head>
 <body>
@@ -42,7 +42,7 @@
           <fieldset><legend><span class="step">02</span> 오늘 끌리는 맛은?</legend><div id="taste-chips" class="chips"></div></fieldset>
           <fieldset id="meal-fieldset"><legend><span class="step">03</span> 뭘로 배를 채울까요?</legend><div id="meal-chips" class="chips"></div></fieldset>
           <div class="rating-filter" id="review-filter-row"><label for="min-reviews"><span data-icon="book"></span> 네이버 리뷰</label><select id="min-reviews"><option value="0">전체</option><option value="100">100건 이상</option><option value="500">500건 이상</option><option value="1000">1,000건 이상</option></select></div>
-          <p class="review-hint" id="review-hint">리뷰 수는 네이버에 표시된 건수이며 평점은 아니에요.</p><div class="switch-row"><label for="student-evidence-only">학생 이용 자료 있는 곳만</label><input type="checkbox" role="switch" id="student-evidence-only"></div><p class="review-hint">학생 이용을 명시한 자료 기준 · 과거 자료 포함 · 인기 순위 아님</p>
+          <p class="review-hint" id="review-hint">리뷰 수는 네이버에 표시된 건수이며 평점은 아니에요.</p>
           <div class="switch-row"><label for="avoid-recent">최근 뽑은 5곳 잠깐 쉬기</label><input type="checkbox" role="switch" id="avoid-recent" checked></div>
           <div class="switch-row"><label for="favorites-only">찜한 맛집에서만 뽑기</label><input type="checkbox" role="switch" id="favorites-only"></div>
           <div class="filter-summary" aria-live="polite"><span data-icon="check"></span><span>취향에 맞는 맛집 <strong id="candidate-count">103</strong>곳 준비 완료!</span></div>
@@ -62,7 +62,7 @@
         </section>
       </div>
     </section>
-    <section id="browse-view" class="view hidden"><div class="collection-heading"><span class="eyebrow">YOUR LITTLE FOOD GUIDE</span><h1 id="collection-title">부산대 맛집 도감<span>.</span></h1><p id="collection-subtitle">다음 밥약 장소는 여기서 찾아봐요.</p></div><div class="collection-toolbar"><label class="search-box"><span data-icon="search"></span><input id="search" type="search" placeholder="식당 이름이나 메뉴 검색" aria-label="식당 이름이나 메뉴 검색"></label><select id="sort" aria-label="맛집 정렬"><option value="recommended">기본 순</option><option value="reviews">네이버 리뷰 순</option><option value="name">이름 순</option></select></div><div id="browse-cuisines" class="chips browse-chips"></div><label class="collection-evidence-filter"><input id="browse-student-only" type="checkbox">학생 이용 자료 있는 곳만</label><div class="collection-meta"><span id="collection-count"></span><button id="collection-draw" class="text-button">취향 고르고 뽑기 <span data-icon="arrow"></span></button></div><div id="collection-cards" class="restaurant-grid collection-grid"></div><div id="collection-empty" class="empty-state hidden"><img src="./assets/rice.svg" alt="" width="100" height="100"><h2>아직 비어 있어요</h2><p></p><button id="empty-action" class="primary-button">맛집 도감 둘러보기</button></div></section>
+    <section id="browse-view" class="view hidden"><div class="collection-heading"><span class="eyebrow">YOUR LITTLE FOOD GUIDE</span><h1 id="collection-title">부산대 맛집 도감<span>.</span></h1><p id="collection-subtitle">다음 밥약 장소는 여기서 찾아봐요.</p></div><div class="collection-toolbar"><label class="search-box"><span data-icon="search"></span><input id="search" type="search" placeholder="식당 이름이나 메뉴 검색" aria-label="식당 이름이나 메뉴 검색"></label><select id="sort" aria-label="맛집 정렬"><option value="recommended">기본 순</option><option value="reviews">네이버 리뷰 순</option><option value="name">이름 순</option></select></div><div id="browse-cuisines" class="chips browse-chips"></div><div class="collection-meta"><span id="collection-count"></span><button id="collection-draw" class="text-button">취향 고르고 뽑기 <span data-icon="arrow"></span></button></div><div id="collection-cards" class="restaurant-grid collection-grid"></div><div id="collection-empty" class="empty-state hidden"><img src="./assets/rice.svg" alt="" width="100" height="100"><h2>아직 비어 있어요</h2><p></p><button id="empty-action" class="primary-button">맛집 도감 둘러보기</button></div></section>
     <footer><div class="footer-brand"><img src="./assets/monkey.svg" alt="" width="30" height="30">오늘 뭐먹지? <span>HUNGRY FRIENDS, HAPPY TUMMIES.</span></div><span class="desktop-scope">정문 중심 · 학생 점심 식사</span></footer>
   </main>
   <dialog id="filter-dialog" class="filter-dialog" aria-labelledby="filter-title"><div id="filter-sheet-content"></div><div class="filter-sheet-actions"><button id="apply-filters" class="primary-button">이 조건으로 맛집 찾기</button></div></dialog>

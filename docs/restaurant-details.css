@@ -1,0 +1,2 @@
+.hours-line{display:block}.hours-line+.hours-line{margin-top:6px}
+@media(max-width:640px){.browse-chips{margin:10px 0 7px}.card-tags{gap:5px}}

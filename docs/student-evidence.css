@@ -1,7 +1,0 @@
-.collection-evidence-filter{display:flex;align-items:center;gap:7px;font-size:11px;margin:0 0 12px;color:#61516d}
-.collection-evidence-filter input{accent-color:#8971b2;width:16px;height:16px}
-.student-status{font-size:9px;padding:3px 5px;background:#f3f0e6;border:1px solid #c5b3c4}
-.student-status.direct{background:#e4f3cb;border-color:#90ad70}.student-status.weak{background:#f8efd4}
-.evidence-date{color:#85708b;font-size:10px}.restaurant-evidence details[open]{border-top:1px dashed #bba8bb;padding-top:7px}
-@media(max-width:640px){.collection-evidence-filter{font-size:9px;margin-bottom:8px}.browse-chips{margin:10px 0 7px}.card-tags{gap:5px}.card-tags .student-status{font-size:8px}}
-@media(min-width:641px){.collection-evidence-filter{margin-top:-4px}}
