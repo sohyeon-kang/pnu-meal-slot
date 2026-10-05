@@ -1,2 +1,6 @@
 .hours-line{display:block}.hours-line+.hours-line{margin-top:6px}
+.header-actions{flex-shrink:0}.header-info.usage-guide-button{display:inline-flex;align-items:center;justify-content:center;width:auto;height:auto;min-height:40px;padding:9px 12px;font-size:12px;line-height:1.25;white-space:nowrap;background:var(--lavender)}
+.usage-guide-button:focus-visible{outline:3px dashed var(--purple);outline-offset:4px}
+.usage-steps{padding-left:24px;margin:0;display:grid;gap:14px}.usage-steps li::marker{font-weight:700;color:var(--purple)}.usage-steps strong{display:block;color:var(--ink);font-size:13px}.usage-steps span{display:block}.info-dialog .usage-storage{margin:22px 0 0;padding-top:14px;border-top:1px dashed #c5b3c4;font-size:10px}
+@media(max-width:640px){.header-info.usage-guide-button{font-size:11px;padding:9px 11px}.info-dialog .usage-steps li{font-size:11px;line-height:1.8}}
 @media(max-width:640px){.browse-chips{margin:10px 0 7px}.card-tags{gap:5px}}

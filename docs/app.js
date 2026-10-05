@@ -108,11 +108,11 @@ function celebrate(){const colors=['#ff96c5','#ffe68a','#c4ec89','#c5b1ee'];$('#
 function showHistory(){
   const entries=currentHistory();$('#info-content').innerHTML=`<p class="eyebrow">FOOD EXPLORATION LOG</p><h2 id="info-title">최근 뽑은 ${label()}</h2>${entries.length?`<div class="history-list">${entries.map(h=>{const r=byId.get(h.id);return `<button class="history-row" data-history-detail="${r.id}"><img src="./assets/${art(r)}.svg" alt=""><span><strong>${escape(r.name)}</strong><small>${new Intl.DateTimeFormat('ko-KR',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit',timeZone:'Asia/Seoul'}).format(h.at)}</small></span></button>`;}).join('')}</div><button class="text-button" id="clear-history" style="margin-top:20px">${label()} 기록 지우기</button>`:'<p>아직 기록이 없어요. 슬롯으로 첫 번째 장소를 만나보세요!</p>'}`;$('#info-dialog').setAttribute('aria-labelledby','info-title');if(!$('#info-dialog').open)showDialog('#info-dialog');
 }
-function showAbout(){
-  const verified=restaurants.filter(r=>r.naverVerified).length;
-  $('#info-content').innerHTML=`<p class="eyebrow">FOOD PLANET GUIDE</p><h2 id="info-title">우리의 탐사 기준</h2><p>식당 도감 ${restaurants.length}곳, 점심 뽑기 ${restaurants.filter(isDrawEligible).length}곳입니다. 취향에 맞는 식당을 뽑고 마음에 드는 곳을 찜해두세요.</p><h3>부산대 정문 생활권</h3><p>정문 도보 7~10분 생활권을 목표로 모았습니다. 실제 개별 보행 시간은 미측정이며 역 방향 식당은 상세 화면에서 안내합니다. 저녁 영업과 점심 미확인 식당은 점심 뽑기에서 제외하고, 밥집오빠는 수록하지 않습니다.</p><h3>네이버 별점과 리뷰</h3><p>기존 ${verified}곳은 네이버 장소 정보를 직접 확인했습니다. 미확인 식당의 별점·리뷰 수는 비워 두며 다른 플랫폼 값으로 대체하지 않습니다. 네이버 지도 링크를 열 때 API 요금은 발생하지 않아요.</p><p>리뷰 수는 평점·학생 인기 순위가 아니며 별점은 남아 있는 과거 표시값입니다. 1.1만 같은 건수는 표시를 유지하고 필터에 근삿값을 사용합니다. 리뷰 수 조건을 고르면 미확인 식당은 제외돼요.</p><h3>뽑기와 저장</h3><p>같은 항목 안에서는 하나라도, 서로 다른 항목에서는 모두 맞는 곳을 고릅니다. 후보별 뽑힐 확률은 같습니다. 최근 5곳 제외가 가능하고 모두 뽑았으면 전체 후보로 돌아갑니다. 찜·취향·최근 기록은 이 브라우저에 저장됩니다.</p>`;
+function showUsageGuide(){
+  $('#info-content').innerHTML=`<h2 id="info-title">사용 안내</h2><ol class="usage-steps"><li><strong>취향 고르기</strong><span>‘설정 +’에서 음식 종류와 맛, 밥·면 등을 골라요. 여러 개를 선택해도 좋아요.</span></li><li><strong>오늘의 맛집 뽑기</strong><span>‘맛집 뽑기!’ 버튼이나 레버를 누르면 조건에 맞는 식당이 나와요.</span></li><li><strong>마음에 들면 찜하기</strong><span>하트를 누르면 ‘찜한 맛집’에 저장돼요. ‘맛집 도감’에서는 이름과 메뉴로 검색할 수 있어요.</span></li><li><strong>위치 확인하기</strong><span>식당 상세 화면의 ‘네이버 지도에서 찾기’를 눌러 위치를 확인해요.</span></li></ol><p class="usage-storage">찜한 곳·취향·최근 기록은 지금 사용하는 브라우저에 저장돼요.</p>`;
   $('#info-dialog').setAttribute('aria-labelledby','info-title');showDialog('#info-dialog');
 }
+
 document.addEventListener('click',e=>{
   const button=e.target.closest('button,a');if(!button)return;
   if(button.dataset.close){$(`#${button.dataset.close}`).close();return;}
@@ -130,7 +130,7 @@ document.addEventListener('click',e=>{
     case 'spin-button':case 'lever':case 'spin-again':void spin();break;
     case 'collection-draw':switchTab('draw');break;
     case 'history-button':showHistory();break;
-    case 'about-button':showAbout();break;
+    case 'about-button':showUsageGuide();break;
     case 'clear-history':history=[];persist();showHistory();toast(`${label()} 기록을 지웠어요.`);break;
     case 'empty-action':$('#search').value='';browseCuisine='전체';if(currentTab==='favorites'&&!catalog().some(r=>favorites.includes(r.id)))switchTab('browse');else renderCollection();break;
   }
