@@ -1,0 +1,697 @@
+{
+  "checkedAt": "2026-10-08",
+  "scope": "사용자가 요청한 18곳 중 기존 4곳 유지, 점심 가능 신규 12곳 추가, 저녁 영업 2곳 제외",
+  "criteria": "일반적인 점심 시간에 식사 메뉴를 이용할 수 있는지로 선별. 매운 음식이나 역 방향이라는 이유만으로 제외하지 않음. 영업시간은 실시간 정보가 아니며 상충하는 부분은 표시함.",
+  "existingRetained": [
+    "쿠카이야",
+    "스스키노 부산대점",
+    "안식당",
+    "키무엔라멘"
+  ],
+  "added": [
+    {
+      "id": "pnu-extra-marinepasta",
+      "name": "마린파스타 부산대점",
+      "aliases": [
+        "마린파스타",
+        "마린 파스타"
+      ],
+      "cuisine": "양식",
+      "tastes": [
+        "담백",
+        "진한",
+        "매콤"
+      ],
+      "meals": [
+        "면",
+        "빵"
+      ],
+      "menu": "알리오올리오 · 투움바 스파이시 파스타 · 양송이 크림 파스타 · 피자",
+      "address": "부산 금정구 부산대학로63번길 47",
+      "area": "부산대 정문 주변",
+      "lunchHours": "월~토 11:00~20:30 / 일요일 휴무 / 라스트오더 20:00",
+      "evidence": [
+        {
+          "url": "https://www.diningcode.com/profile.php?rid=zq3daoiIh5uI",
+          "title": "마린파스타 부산대점 메뉴·운영정보",
+          "date": null,
+          "kind": "public_menu_and_hours",
+          "summary": "부산대학로63번길 47 지점의 11시 개점·일요일 휴무, 파스타·피자 식사 메뉴와 점심 방문 기록을 확인."
+        }
+      ],
+      "note": "",
+      "kind": "meal",
+      "menuEvidenceType": "public_sources",
+      "lunchEligible": true,
+      "lunchUnclear": false,
+      "rating": null,
+      "reviewCount": null,
+      "naverVerified": false,
+      "verificationStatus": "naver_pending",
+      "sourceName": "공개 자료 · 네이버 직접 확인 전",
+      "sourceUrl": "https://www.diningcode.com/profile.php?rid=zq3daoiIh5uI",
+      "naverPlaceUrl": "https://map.naver.com/p/search/%EB%A7%88%EB%A6%B0%ED%8C%8C%EC%8A%A4%ED%83%80%20%EB%B6%80%EC%82%B0%EB%8C%80%EC%A0%90%20%EB%B6%80%EC%82%B0%EB%8C%80",
+      "checkedAt": "2026-10-08",
+      "studentEvidenceLevel": "unknown",
+      "studentEvidenceSummary": "이번 추가에서는 점심 영업·메뉴를 확인했으며 부산대 학생의 직접 이용 근거는 별도로 검증하지 않음.",
+      "studentCheckedAt": "2026-10-08",
+      "missingVerification": [
+        "네이버 장소 상세·별점·리뷰 수 직접 확인",
+        "현재 임시휴무·변경된 영업시간"
+      ],
+      "lunchSelectionReason": "11시부터 파스타·피자를 식사 메뉴로 판매하고 점심 방문 기록이 있음."
+    },
+    {
+      "id": "pnu-extra-sangsaeng-ramen",
+      "name": "상생라멘 부산대점",
+      "aliases": [
+        "상생라멘",
+        "상생라면"
+      ],
+      "cuisine": "일식",
+      "tastes": [
+        "진한",
+        "매콤"
+      ],
+      "meals": [
+        "면",
+        "밥"
+      ],
+      "menu": "쇼유라멘 · 한우대창라멘 · 토마토라멘 · 민물장어덮밥",
+      "address": "부산 금정구 금강로 278 1층",
+      "area": "부산대 정문 주변",
+      "lunchHours": "점심 영업 / 외부 자료 11:00~20:30 / 업체 소개에는 11:30~22:00, 브레이크 15:00~17:00, 수요일 휴무로 표기되어 현재 시간·휴무 확인 필요",
+      "evidence": [
+        {
+          "url": "https://www.tabling.co.kr/place/677cd7e466de5f0698938ba6",
+          "title": "상생라멘 부산대점 메뉴·영업시간",
+          "date": null,
+          "kind": "public_menu_and_hours",
+          "summary": "금강로 278 지점의 11:00~20:30 영업 및 쇼유·대창·토마토라멘, 장어덮밥 메뉴를 확인."
+        },
+        {
+          "url": "https://www.daangn.com/kr/local-profile/%EC%83%81%EC%83%9D%EB%9D%BC%EB%A9%98-%EB%B6%80%EC%82%B0%EB%8C%80%EC%A0%90-snro8b38ucmj/",
+          "title": "상생라멘 부산대점 업체 소개",
+          "date": null,
+          "kind": "public_menu_and_hours",
+          "summary": "동래시장점에서 부산대 금강로 278로 이전한 업체 소개. 점심 영업은 일치하나 개점·마감·휴무 안내가 테이블링과 다름. 17시부터 판매하는 메뉴는 별도 안주 메뉴임."
+        }
+      ],
+      "note": "",
+      "kind": "meal",
+      "menuEvidenceType": "public_sources",
+      "lunchEligible": true,
+      "lunchUnclear": false,
+      "rating": null,
+      "reviewCount": null,
+      "naverVerified": false,
+      "verificationStatus": "naver_pending",
+      "sourceName": "공개 자료 · 네이버 직접 확인 전",
+      "sourceUrl": "https://www.tabling.co.kr/place/677cd7e466de5f0698938ba6",
+      "naverPlaceUrl": "https://map.naver.com/p/search/%EC%83%81%EC%83%9D%EB%9D%BC%EB%A9%98%20%EB%B6%80%EC%82%B0%EB%8C%80%EC%A0%90%20%EB%B6%80%EC%82%B0%EB%8C%80",
+      "checkedAt": "2026-10-08",
+      "studentEvidenceLevel": "unknown",
+      "studentEvidenceSummary": "이번 추가에서는 점심 영업·메뉴를 확인했으며 부산대 학생의 직접 이용 근거는 별도로 검증하지 않음.",
+      "studentCheckedAt": "2026-10-08",
+      "missingVerification": [
+        "네이버 장소 상세·별점·리뷰 수 직접 확인",
+        "현재 임시휴무·변경된 영업시간"
+      ],
+      "lunchSelectionReason": "라멘·덮밥의 점심 영업을 확인. 저녁 전용 안주 메뉴와 구분함."
+    },
+    {
+      "id": "pnu-37",
+      "name": "코하루",
+      "aliases": [
+        "코하루라멘",
+        "코하루 라멘"
+      ],
+      "cuisine": "일식",
+      "tastes": [
+        "진한",
+        "매콤"
+      ],
+      "meals": [
+        "면"
+      ],
+      "menu": "하카타 돈코츠라멘 · 매운 돈코츠라멘 · 마제소바",
+      "address": "부산 금정구 부산대학로38번길 16",
+      "area": "부산대역 방향",
+      "lunchHours": "11:00~21:00 / 라스트오더 20:30 / 브레이크타임은 자료마다 달라 방문 전 확인",
+      "evidence": [
+        {
+          "url": "https://www.diningcode.com/profile.php?rid=VJSpebVlzURB",
+          "title": "코하루 메뉴·운영정보",
+          "date": null,
+          "kind": "public_menu_and_hours",
+          "summary": "부산대학로38번길 16의 라멘·마제소바 식사 메뉴와 11시 개점·점심 방문 기록을 확인. 과거 15:30~17:00 휴식과 최근 휴식 없음 표기가 혼재함."
+        }
+      ],
+      "note": "",
+      "kind": "meal",
+      "menuEvidenceType": "public_sources",
+      "lunchEligible": true,
+      "lunchUnclear": false,
+      "rating": null,
+      "reviewCount": null,
+      "naverVerified": false,
+      "verificationStatus": "naver_pending",
+      "sourceName": "공개 자료 · 네이버 직접 확인 전",
+      "sourceUrl": "https://www.diningcode.com/profile.php?rid=VJSpebVlzURB",
+      "naverPlaceUrl": "https://map.naver.com/p/search/%EC%BD%94%ED%95%98%EB%A3%A8%20%EB%B6%80%EC%82%B0%EB%8C%80",
+      "checkedAt": "2026-10-08",
+      "studentEvidenceLevel": "unknown",
+      "studentEvidenceSummary": "이번 추가에서는 점심 영업·메뉴를 확인했으며 부산대 학생의 직접 이용 근거는 별도로 검증하지 않음.",
+      "studentCheckedAt": "2026-10-08",
+      "missingVerification": [
+        "네이버 장소 상세·별점·리뷰 수 직접 확인",
+        "현재 임시휴무·변경된 영업시간"
+      ],
+      "lunchSelectionReason": "11시 개점 및 라멘 점심 방문 기록을 확인."
+    },
+    {
+      "id": "pnu-extra-snaku",
+      "name": "스나쿠 부산대",
+      "aliases": [
+        "스나쿠",
+        "SNAKU"
+      ],
+      "cuisine": "일식",
+      "tastes": [
+        "진한",
+        "달콤"
+      ],
+      "meals": [
+        "밥",
+        "면"
+      ],
+      "menu": "카라아게동 · 돈카츠카레 · 일식 오므라이스 · 냉모밀소바",
+      "address": "부산 금정구 금정로52번길 45 101호, 102호",
+      "area": "부산대역 방향",
+      "lunchHours": "11:00 또는 11:30 개점~20:30 / 라스트오더 20:00 / 평일 브레이크 15:00~17:00 표기, 현재 시간 확인 필요",
+      "placeId": "1573494989",
+      "userNaverUrl": "https://naver.me/Gzdxn7DE",
+      "evidence": [
+        {
+          "url": "https://www.diningcode.com/profile.php?rid=JSV631DW2leP",
+          "title": "스나쿠 부산대 메뉴·운영정보",
+          "date": null,
+          "kind": "public_menu_and_hours",
+          "summary": "사용자 제공 주소와 일치하며 덮밥·카레·오므라이스·소바 메뉴 확인. 공개 후기의 개점 시간이 11:00과 11:30으로 다르지만 모두 점심 영업을 안내함."
+        }
+      ],
+      "note": "",
+      "kind": "meal",
+      "menuEvidenceType": "public_sources",
+      "lunchEligible": true,
+      "lunchUnclear": false,
+      "rating": null,
+      "reviewCount": null,
+      "naverVerified": false,
+      "verificationStatus": "naver_pending",
+      "sourceName": "공개 자료 · 네이버 직접 확인 전",
+      "sourceUrl": "https://www.diningcode.com/profile.php?rid=JSV631DW2leP",
+      "naverPlaceUrl": "https://map.naver.com/p/entry/place/1573494989",
+      "checkedAt": "2026-10-08",
+      "studentEvidenceLevel": "unknown",
+      "studentEvidenceSummary": "이번 추가에서는 점심 영업·메뉴를 확인했으며 부산대 학생의 직접 이용 근거는 별도로 검증하지 않음.",
+      "studentCheckedAt": "2026-10-08",
+      "missingVerification": [
+        "네이버 장소 상세·별점·리뷰 수 직접 확인",
+        "현재 임시휴무·변경된 영업시간"
+      ],
+      "lunchSelectionReason": "점심 시간에 덮밥·카레·오므라이스 등 한 끼 메뉴 이용 가능."
+    },
+    {
+      "id": "pnu-25",
+      "name": "웍헤이",
+      "aliases": [
+        "웍 헤이"
+      ],
+      "cuisine": "중식",
+      "tastes": [
+        "매콤",
+        "진한"
+      ],
+      "meals": [
+        "면",
+        "밥"
+      ],
+      "menu": "쌀탕면 · 지금볶은밥 · 구름새우",
+      "address": "부산 금정구 장전로12번길 28 1층 웍헤이",
+      "area": "부산대역 방향",
+      "lunchHours": "월~토 11:30~20:00 / 브레이크 15:00~16:30 / 라스트오더 14:30·19:30 / 일요일 휴무",
+      "placeId": "1456686050",
+      "userNaverUrl": "https://naver.me/x52Z9pGc",
+      "evidence": [
+        {
+          "url": "https://www.diningcode.com/profile.php?rid=8QF7nm4ia7bB",
+          "title": "웍헤이 메뉴·운영정보",
+          "date": null,
+          "kind": "public_menu_and_hours",
+          "summary": "같은 주소의 11:30 개점과 일요일 휴무, 쌀탕면·지금볶은밥 메뉴 및 점심 방문 기록을 확인."
+        }
+      ],
+      "note": "",
+      "kind": "meal",
+      "menuEvidenceType": "public_sources",
+      "lunchEligible": true,
+      "lunchUnclear": false,
+      "rating": null,
+      "reviewCount": null,
+      "naverVerified": false,
+      "verificationStatus": "naver_pending",
+      "sourceName": "공개 자료 · 네이버 직접 확인 전",
+      "sourceUrl": "https://www.diningcode.com/profile.php?rid=8QF7nm4ia7bB",
+      "naverPlaceUrl": "https://map.naver.com/p/entry/place/1456686050",
+      "checkedAt": "2026-10-08",
+      "studentEvidenceLevel": "unknown",
+      "studentEvidenceSummary": "이번 추가에서는 점심 영업·메뉴를 확인했으며 부산대 학생의 직접 이용 근거는 별도로 검증하지 않음.",
+      "studentCheckedAt": "2026-10-08",
+      "missingVerification": [
+        "네이버 장소 상세·별점·리뷰 수 직접 확인",
+        "현재 임시휴무·변경된 영업시간"
+      ],
+      "lunchSelectionReason": "11:30부터 쌀탕면·볶음밥 식사 가능."
+    },
+    {
+      "id": "pnu-26",
+      "name": "키노",
+      "aliases": [
+        "KINO",
+        "키노 부산대"
+      ],
+      "cuisine": "양식",
+      "tastes": [
+        "진한",
+        "매콤"
+      ],
+      "meals": [
+        "면",
+        "밥",
+        "고기",
+        "빵"
+      ],
+      "menu": "봉골레 파스타 · 비프 크림 파스타 · 필라프 · 목살 스테이크 · 피자",
+      "address": "부산 금정구 장전로12번길 30 2층",
+      "area": "부산대역 방향",
+      "lunchHours": "화~일 11:00~21:30 / 브레이크 15:00~17:00 / 라스트오더 20:30 / 월요일 휴무",
+      "placeId": "1525283898",
+      "userNaverUrl": "https://naver.me/GM34tCrl",
+      "evidence": [
+        {
+          "url": "https://www.diningcode.com/profile.php?rid=cWnRy92VrfQj",
+          "title": "키노 메뉴·운영정보",
+          "date": null,
+          "kind": "public_menu_and_hours",
+          "summary": "같은 주소의 11시 개점, 15~17시 휴식, 월요일 휴무와 파스타·필라프·스테이크·피자 메뉴 및 점심 후기를 확인."
+        }
+      ],
+      "note": "",
+      "kind": "meal",
+      "menuEvidenceType": "public_sources",
+      "lunchEligible": true,
+      "lunchUnclear": false,
+      "rating": null,
+      "reviewCount": null,
+      "naverVerified": false,
+      "verificationStatus": "naver_pending",
+      "sourceName": "공개 자료 · 네이버 직접 확인 전",
+      "sourceUrl": "https://www.diningcode.com/profile.php?rid=cWnRy92VrfQj",
+      "naverPlaceUrl": "https://map.naver.com/p/entry/place/1525283898",
+      "checkedAt": "2026-10-08",
+      "studentEvidenceLevel": "unknown",
+      "studentEvidenceSummary": "이번 추가에서는 점심 영업·메뉴를 확인했으며 부산대 학생의 직접 이용 근거는 별도로 검증하지 않음.",
+      "studentCheckedAt": "2026-10-08",
+      "missingVerification": [
+        "네이버 장소 상세·별점·리뷰 수 직접 확인",
+        "현재 임시휴무·변경된 영업시간"
+      ],
+      "lunchSelectionReason": "11시부터 파스타·필라프 등 점심 식사 가능."
+    },
+    {
+      "id": "pnu-01",
+      "name": "도야지면옥 본점",
+      "aliases": [
+        "도야지면옥"
+      ],
+      "cuisine": "한식",
+      "tastes": [
+        "담백",
+        "진한",
+        "매콤"
+      ],
+      "meals": [
+        "면",
+        "고기"
+      ],
+      "menu": "사골고기국수 · 얼큰고기국수 · 돔베수육",
+      "address": "부산 금정구 장전온천천로 39 도야지면옥",
+      "area": "부산대역 방향",
+      "lunchHours": "매일 11:15~20:30 / 브레이크 15:00~16:00 / 라스트오더 20:00",
+      "placeId": "401694921",
+      "userNaverUrl": "https://naver.me/IFEreUnj",
+      "evidence": [
+        {
+          "url": "https://www.diningcode.com/profile.php?rid=ZuGon97ezhbU",
+          "title": "도야지면옥 본점 메뉴·운영정보",
+          "date": null,
+          "kind": "public_menu_and_hours",
+          "summary": "장전온천천로 39 본점의 11:15 개점과 15~16시 휴식, 고기국수 식사 메뉴를 확인. 경성대부경대점 자료와 구분함."
+        }
+      ],
+      "note": "",
+      "kind": "meal",
+      "menuEvidenceType": "public_sources",
+      "lunchEligible": true,
+      "lunchUnclear": false,
+      "rating": null,
+      "reviewCount": null,
+      "naverVerified": false,
+      "verificationStatus": "naver_pending",
+      "sourceName": "공개 자료 · 네이버 직접 확인 전",
+      "sourceUrl": "https://www.diningcode.com/profile.php?rid=ZuGon97ezhbU",
+      "naverPlaceUrl": "https://map.naver.com/p/entry/place/401694921",
+      "checkedAt": "2026-10-08",
+      "studentEvidenceLevel": "unknown",
+      "studentEvidenceSummary": "이번 추가에서는 점심 영업·메뉴를 확인했으며 부산대 학생의 직접 이용 근거는 별도로 검증하지 않음.",
+      "studentCheckedAt": "2026-10-08",
+      "missingVerification": [
+        "네이버 장소 상세·별점·리뷰 수 직접 확인",
+        "현재 임시휴무·변경된 영업시간"
+      ],
+      "lunchSelectionReason": "본점의 11:15 개점과 고기국수 점심 식사 가능 여부 확인."
+    },
+    {
+      "id": "pnu-extra-songju-naengmyeon",
+      "name": "송주불냉면 부산대점",
+      "aliases": [
+        "송주불냉면",
+        "송주 불냉면"
+      ],
+      "cuisine": "한식",
+      "tastes": [
+        "매콤",
+        "담백"
+      ],
+      "meals": [
+        "면",
+        "고기"
+      ],
+      "menu": "물냉면 · 비빔냉면 · 냉면·돈까스 세트 · 만두",
+      "address": "부산 금정구 부산대학로49번길 51 1층",
+      "area": "부산대 정문 주변",
+      "lunchHours": "외부 운영표 11:30~20:00 / 브레이크 15:00~17:00 / 라스트오더 19:30 / 개점·주말 휴식 시간은 자료마다 달라 확인 필요",
+      "placeId": "1533774556",
+      "userNaverUrl": "https://naver.me/FtoOibzq",
+      "evidence": [
+        {
+          "url": "https://www.diningcode.com/profile.php?rid=D6hkWa0awwmn",
+          "title": "송주불냉면 부산대점 메뉴·운영정보",
+          "date": null,
+          "kind": "public_menu_and_hours",
+          "summary": "사용자 제공 주소와 일치하는 이전 후 지점의 냉면·돈까스 세트와 점심 방문 기록을 확인. 개점 시각은 10:30·11:00·11:30으로 자료 차이가 있어 확정하지 않음."
+        }
+      ],
+      "note": "",
+      "kind": "meal",
+      "menuEvidenceType": "public_sources",
+      "lunchEligible": true,
+      "lunchUnclear": false,
+      "rating": null,
+      "reviewCount": null,
+      "naverVerified": false,
+      "verificationStatus": "naver_pending",
+      "sourceName": "공개 자료 · 네이버 직접 확인 전",
+      "sourceUrl": "https://www.diningcode.com/profile.php?rid=D6hkWa0awwmn",
+      "naverPlaceUrl": "https://map.naver.com/p/entry/place/1533774556",
+      "checkedAt": "2026-10-08",
+      "studentEvidenceLevel": "unknown",
+      "studentEvidenceSummary": "이번 추가에서는 점심 영업·메뉴를 확인했으며 부산대 학생의 직접 이용 근거는 별도로 검증하지 않음.",
+      "studentCheckedAt": "2026-10-08",
+      "missingVerification": [
+        "네이버 장소 상세·별점·리뷰 수 직접 확인",
+        "현재 임시휴무·변경된 영업시간"
+      ],
+      "lunchSelectionReason": "이전 후 주소에서 냉면·돈까스 세트 등 점심 식사를 확인."
+    },
+    {
+      "id": "pnu-extra-gurume",
+      "name": "구루메",
+      "aliases": [
+        "グルメ",
+        "구루메 부산대"
+      ],
+      "cuisine": "일식",
+      "tastes": [
+        "진한",
+        "담백",
+        "달콤"
+      ],
+      "meals": [
+        "밥",
+        "면"
+      ],
+      "menu": "부타동 · 카라아게동 · 차항 · 야끼소바 · 사누끼 우동",
+      "address": "부산 금정구 부산대학로63번길 22 1층",
+      "area": "부산대 정문 주변",
+      "lunchHours": "월~토 10:00~21:00 / 일요일 휴무",
+      "placeId": "2096294315",
+      "userNaverUrl": "https://naver.me/IID5N6xw",
+      "evidence": [
+        {
+          "url": "https://luxdigest.com/%EB%B6%80%EC%82%B0%EB%8C%80-%EC%A3%BC%EB%B3%80-%EB%A7%9B%EC%A7%91-%EA%B5%AC%EB%A3%A8%EB%A9%94%E3%82%B0%E3%83%AB%E3%83%A1/",
+          "title": "구루메 2026년 10월 방문기",
+          "date": "2026-10-02",
+          "kind": "public_menu_and_hours",
+          "summary": "2026-10-01 방문을 바탕으로 작성된 글에서 같은 주소, 월~토 10~21시 영업·일요일 휴무와 덮밥·볶음밥·야끼소바·우동 메뉴를 확인."
+        }
+      ],
+      "note": "",
+      "kind": "meal",
+      "menuEvidenceType": "public_sources",
+      "lunchEligible": true,
+      "lunchUnclear": false,
+      "rating": null,
+      "reviewCount": null,
+      "naverVerified": false,
+      "verificationStatus": "naver_pending",
+      "sourceName": "공개 자료 · 네이버 직접 확인 전",
+      "sourceUrl": "https://luxdigest.com/%EB%B6%80%EC%82%B0%EB%8C%80-%EC%A3%BC%EB%B3%80-%EB%A7%9B%EC%A7%91-%EA%B5%AC%EB%A3%A8%EB%A9%94%E3%82%B0%E3%83%AB%E3%83%A1/",
+      "naverPlaceUrl": "https://map.naver.com/p/entry/place/2096294315",
+      "checkedAt": "2026-10-08",
+      "studentEvidenceLevel": "unknown",
+      "studentEvidenceSummary": "이번 추가에서는 점심 영업·메뉴를 확인했으며 부산대 학생의 직접 이용 근거는 별도로 검증하지 않음.",
+      "studentCheckedAt": "2026-10-08",
+      "missingVerification": [
+        "네이버 장소 상세·별점·리뷰 수 직접 확인",
+        "현재 임시휴무·변경된 영업시간"
+      ],
+      "lunchSelectionReason": "10월 방문 자료에서 오전 개점 및 덮밥·볶음밥·면 식사를 확인."
+    },
+    {
+      "id": "pnu-extra-koko-brown",
+      "name": "코코브라운",
+      "aliases": [
+        "코코 브라운",
+        "KOKO BROWN"
+      ],
+      "cuisine": "양식",
+      "tastes": [
+        "진한",
+        "매콤"
+      ],
+      "meals": [
+        "면",
+        "밥",
+        "고기",
+        "빵"
+      ],
+      "menu": "파스타 · 필라프 · 목살 스테이크 · 피자 · 평일 런치세트",
+      "address": "부산 금정구 금강로 250 2층",
+      "area": "부산대 정문 주변",
+      "lunchHours": "평일 11:00~21:30, 브레이크 15:00~17:00 / 주말 11:30~21:00 / 평일 런치세트 15:00까지",
+      "placeId": "36379350",
+      "userNaverUrl": "https://naver.me/FSvgFRQ4",
+      "evidence": [
+        {
+          "url": "https://www.diningcode.com/profile.php?rid=ZWTVWCM7SVAi",
+          "title": "코코브라운 메뉴·운영정보",
+          "date": null,
+          "kind": "public_menu_and_hours",
+          "summary": "같은 주소와 평일 11시·주말 11:30 개점, 파스타·필라프·스테이크·피자 및 평일 15시까지 판매하는 런치세트를 확인."
+        }
+      ],
+      "note": "",
+      "kind": "meal",
+      "menuEvidenceType": "public_sources",
+      "lunchEligible": true,
+      "lunchUnclear": false,
+      "rating": null,
+      "reviewCount": null,
+      "naverVerified": false,
+      "verificationStatus": "naver_pending",
+      "sourceName": "공개 자료 · 네이버 직접 확인 전",
+      "sourceUrl": "https://www.diningcode.com/profile.php?rid=ZWTVWCM7SVAi",
+      "naverPlaceUrl": "https://map.naver.com/p/entry/place/36379350",
+      "checkedAt": "2026-10-08",
+      "studentEvidenceLevel": "unknown",
+      "studentEvidenceSummary": "이번 추가에서는 점심 영업·메뉴를 확인했으며 부산대 학생의 직접 이용 근거는 별도로 검증하지 않음.",
+      "studentCheckedAt": "2026-10-08",
+      "missingVerification": [
+        "네이버 장소 상세·별점·리뷰 수 직접 확인",
+        "현재 임시휴무·변경된 영업시간"
+      ],
+      "lunchSelectionReason": "점심 개점과 평일 런치세트 운영을 확인."
+    },
+    {
+      "id": "pnu-extra-yupdduk",
+      "name": "동대문엽기떡볶이 부산대점",
+      "aliases": [
+        "엽기떡볶이",
+        "엽떡",
+        "엽떡 부산대점"
+      ],
+      "cuisine": "분식",
+      "tastes": [
+        "매콤",
+        "진한"
+      ],
+      "meals": [
+        "분식"
+      ],
+      "menu": "엽기떡볶이 · 마라떡볶이",
+      "address": "부산 금정구 금강로 271-4",
+      "area": "부산대 정문 주변",
+      "lunchHours": "외부 자료 매일 11:30~23:30 / 현재 영업시간·매장 식사 가능 시간은 네이버 지도에서 확인",
+      "placeId": "35424598",
+      "userNaverUrl": "https://naver.me/Ghwa7aNd",
+      "note": "매운 분식으로 점심을 먹고 싶을 때 골라요. 주문 인원과 맵기를 확인해주세요.",
+      "evidence": [
+        {
+          "url": "https://www.siksamenu.co.kr/food/detail.asp?seq=807510249",
+          "title": "동대문엽기떡볶이 부산대점 위치·영업시간",
+          "date": null,
+          "kind": "public_menu_and_hours",
+          "summary": "사용자 제공 금강로 271-4 지점의 11:30 개점 자료를 확인. 자료 갱신 시점을 알 수 없어 현재 영업시간은 재확인이 필요함."
+        },
+        {
+          "url": "https://www.diningcode.com/list.dc?query=%EB%B6%80%EC%82%B0%EB%8C%80++%EB%96%A1%EB%B3%B6%EC%9D%B4",
+          "title": "부산대 동대문엽기떡볶이 메뉴·매장 식사 자료",
+          "date": null,
+          "kind": "public_menu_and_hours",
+          "summary": "부산대 동대문엽기떡볶이의 떡볶이·마라떡볶이 메뉴와 매장 식사 후기를 확인. 타 지점의 영업시간·가격은 사용하지 않음."
+        }
+      ],
+      "kind": "meal",
+      "menuEvidenceType": "public_sources",
+      "lunchEligible": true,
+      "lunchUnclear": false,
+      "rating": null,
+      "reviewCount": null,
+      "naverVerified": false,
+      "verificationStatus": "naver_pending",
+      "sourceName": "공개 자료 · 네이버 직접 확인 전",
+      "sourceUrl": "https://www.siksamenu.co.kr/food/detail.asp?seq=807510249",
+      "naverPlaceUrl": "https://map.naver.com/p/entry/place/35424598",
+      "checkedAt": "2026-10-08",
+      "studentEvidenceLevel": "unknown",
+      "studentEvidenceSummary": "이번 추가에서는 점심 영업·메뉴를 확인했으며 부산대 학생의 직접 이용 근거는 별도로 검증하지 않음.",
+      "studentCheckedAt": "2026-10-08",
+      "missingVerification": [
+        "네이버 장소 상세·별점·리뷰 수 직접 확인",
+        "현재 임시휴무·변경된 영업시간"
+      ],
+      "lunchSelectionReason": "해당 지점의 점심 개점 자료와 떡볶이 매장 식사를 확인. 매운 음식이라는 이유만으로 제외하지 않음."
+    },
+    {
+      "id": "pnu-extra-poke-all-day",
+      "name": "Poke all day 포케&샐러드 부산대점",
+      "aliases": [
+        "포케올데이",
+        "포케 올 데이",
+        "포케올데이 부산대점"
+      ],
+      "cuisine": "양식",
+      "tastes": [
+        "담백",
+        "매콤"
+      ],
+      "meals": [
+        "밥",
+        "면"
+      ],
+      "menu": "곡물밥 포케 · 연어 포케 · 닭가슴살 포케 · 메밀면 포케",
+      "address": "부산 금정구 금강로279번길 20 2층",
+      "area": "부산대 정문 주변",
+      "lunchHours": "10:00~20:30 / 일부 일요일 10:30 개점 표기 / 토요일 휴무 자료가 있으나 휴무 안내가 서로 달라 확인 필요",
+      "placeId": "1293067837",
+      "userNaverUrl": "https://naver.me/xvCxQvbS",
+      "evidence": [
+        {
+          "url": "https://www.daangn.com/kr/local-profile/%ED%8F%AC%EC%BC%80%EC%98%AC%EB%8D%B0%EC%9D%B4-%EB%B6%80%EC%82%B0%EB%8C%80%EC%A0%90-z1mjakxvuikm/",
+          "title": "포케올데이 부산대점 업체 소개",
+          "date": null,
+          "kind": "public_menu_and_hours",
+          "summary": "동일 주소 업체 소개에서 10:00~20:30 영업과 현미밥 포케 식사 메뉴를 확인."
+        },
+        {
+          "url": "https://www.diningcode.com/profile.php?rid=XWy8WWkyTTPP",
+          "title": "포케올데이 부산대점 메뉴·점심 방문 자료",
+          "date": null,
+          "kind": "public_menu_and_hours",
+          "summary": "연어·닭가슴살·곡물밥·메밀면 포케와 점심 방문 기록 확인. 토요일 휴무, 월요일 휴무, 매일 영업 표기가 혼재하여 휴무일은 확정하지 않음."
+        }
+      ],
+      "note": "",
+      "kind": "meal",
+      "menuEvidenceType": "public_sources",
+      "lunchEligible": true,
+      "lunchUnclear": false,
+      "rating": null,
+      "reviewCount": null,
+      "naverVerified": false,
+      "verificationStatus": "naver_pending",
+      "sourceName": "공개 자료 · 네이버 직접 확인 전",
+      "sourceUrl": "https://www.daangn.com/kr/local-profile/%ED%8F%AC%EC%BC%80%EC%98%AC%EB%8D%B0%EC%9D%B4-%EB%B6%80%EC%82%B0%EB%8C%80%EC%A0%90-z1mjakxvuikm/",
+      "naverPlaceUrl": "https://map.naver.com/p/entry/place/1293067837",
+      "checkedAt": "2026-10-08",
+      "studentEvidenceLevel": "unknown",
+      "studentEvidenceSummary": "이번 추가에서는 점심 영업·메뉴를 확인했으며 부산대 학생의 직접 이용 근거는 별도로 검증하지 않음.",
+      "studentCheckedAt": "2026-10-08",
+      "missingVerification": [
+        "네이버 장소 상세·별점·리뷰 수 직접 확인",
+        "현재 임시휴무·변경된 영업시간"
+      ],
+      "lunchSelectionReason": "밥·면·단백질을 포함한 포케 식사와 오전 개점·점심 방문을 확인."
+    }
+  ],
+  "excluded": [
+    {
+      "name": "신짜글이닭발 부산대점",
+      "userNaverUrl": "https://naver.me/Gi0EURTS",
+      "address": "부산 금정구 장전로12번길 27",
+      "reason": "공개 운영 정보와 방문기 모두 17:00 개점으로 점심 시간에 이용할 수 없음.",
+      "sources": [
+        "https://www.diningcode.com/profile.php?rid=Gfffz1DiM4d5"
+      ]
+    },
+    {
+      "name": "늑간",
+      "userNaverUrl": "https://naver.me/FP8hEZmR",
+      "address": "부산 금정구 장전로12번길 23 1층",
+      "reason": "공개 운영 정보 16:30 개점으로 점심 시간에 이용할 수 없음.",
+      "sources": [
+        "https://www.diningcode.com/profile.php?rid=KbEZQbCf07Rc"
+      ]
+    }
+  ],
+  "naverLinkVerification": "사용자 제공 신규 9곳의 naver.me 링크를 2026-10-08 HTTP 307 Location의 pinId로 해석해 정식 장소 링크에 연결함. 단축 링크 해석은 네이버 메뉴·영업시간·별점 직접 검증과 다름.",
+  "counts": {
+    "catalogBefore": 105,
+    "lunchBefore": 103,
+    "added": 12,
+    "catalogAfter": 117,
+    "lunchAfter": 115
+  }
+}
